@@ -1,0 +1,46 @@
+# Full Screen Iframe Form
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Iframe Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="urlForm" onsubmit="openIframe(event)">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Open Iframe</button>
+    </form>
+
+    <script>
+        function openIframe(event) {
+            event.preventDefault();
+            var win = window.open()
+            const url = document.getElementById('url').value;
+            const iframe = win.document.createElement('iframe');
+            iframe.src = 'embed.html#${url};
+            iframe.style.position = 'fixed';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            win.document.body.appendChild(iframe)
+        }
+    </script>
+
+</body>
+</html>
